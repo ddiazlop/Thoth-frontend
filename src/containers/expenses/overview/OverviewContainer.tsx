@@ -1,23 +1,46 @@
+import {OverviewItem} from "@/components/expenses/overview/OverviewItem";
+import {useEffect, useState} from "react";
+
+type OverviewData = {
+	total: number,
+	monthly: number,
+}
+
 export function OverviewContainer() {
+	const [overviewData, setOverviewData] = useState<OverviewData | null>(null)
+	// Gets data from the API
+	useEffect(() => {
+		const fetchOverviewData = async () => {
+			console.log("Fetching overview data...")
+			const response = await fetch('/api/expenses/overview')
+			const data = await response.json()
+			console.log(data)
+			setOverviewData(data)
+		};
+
+		fetchOverviewData().then();
+	}, [])
+
+	if (!overviewData) {
+		return (
+			<div className="container w-full mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2">
+				<div className="flex justify-between items-center flex-shrink">
+					<div className="flex-auto text-center">
+						<h1 className="md:text-5xl sm:text-3xl text-2xl text-gray-900 font-semibold dark:text-white">Loading...</h1>
+					</div>
+				</div>
+			</div>
+		)
+	}
 	return (
-		<div className={"block w-11/12 mt-5 pt-20 pb-20 pl-10 pr-10 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"}>
-			<div className="flex items-center justify-between">
+		<div className="container w-full mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2">
+			<div className="flex justify-between items-center flex-shrink">
 
-				<div className="flex flex-col">
-					<h1 className="text-7xl text-gray-900 font-semibold dark:text-white">2500€</h1>
-					<h5 className="text-sm font-medium text-gray-900 dark:text-white">Total</h5>
-				</div>
+				<OverviewItem amount={overviewData.total} type={"Total"}/>
 
-				<div className="flex flex-col">
-					<h1 className="text-7xl text-gray-900 font-semibold dark:text-white">2500€</h1>
-					<h5 className="text-sm font-medium text-gray-900 dark:text-white">Monthly</h5>
-				</div>
+				<OverviewItem amount={2500} type={"Monthly"}/>
 
-				<div className="flex flex-col">
-					<h1 className="text-7xl text-gray-900 font-semibold dark:text-white">2500€</h1>
-					<h5 className="text-sm font-medium text-gray-900 dark:text-white">Fixed</h5>
-				</div>
-
+				<OverviewItem amount={2500} type={"Predicted"}/>
 			</div>
 		</div>
 	)

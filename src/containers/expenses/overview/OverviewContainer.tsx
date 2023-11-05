@@ -38,7 +38,7 @@ export function OverviewContainer() {
 
 				<OverviewItem amount={overviewData.total} type={"Total"}/>
 
-				<OverviewItem amount={2500} type={"Monthly"}/>
+				<OverviewItem amount={overviewData.monthly} type={"Monthly"}/>
 
 				<OverviewItem amount={2500} type={"Predicted"}/>
 			</div>

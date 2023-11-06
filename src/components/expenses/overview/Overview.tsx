@@ -1,4 +1,4 @@
-import {OverviewItem} from "@/components/expenses/overview/OverviewItem";
+import {OverviewItem} from "@/components/expenses/overview/item/OverviewItem";
 import {useEffect, useState} from "react";
 
 type OverviewData = {
@@ -6,7 +6,7 @@ type OverviewData = {
 	monthly: number,
 }
 
-export function OverviewContainer() {
+export function Overview() {
 	const [overviewData, setOverviewData] = useState<OverviewData | null>(null)
 	// Gets data from the API
 	useEffect(() => {

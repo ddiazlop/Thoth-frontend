@@ -1,7 +1,14 @@
 import {Expense} from "@/model/Expense";
 import {useEffect, useState} from "react";
 
-export const LatestExpensesListContainer = () => {
+
+interface LatestExpensesListContainerProps {
+    setSeed: (value: (((prevState: number) => number) | number)) => void
+    seed: number
+}
+
+export const LatestExpensesList = ({seed, setSeed}: LatestExpensesListContainerProps) => {
+
     const [expenses, setExpenses] = useState<Expense[]>([]);
 
     useEffect(() => {
@@ -12,7 +19,22 @@ export const LatestExpensesListContainer = () => {
         };
 
         fetchExpenses().then();
-    });
+    }, [seed]);
+
+    const handleDelete = async (id: number) => {
+        const response = await fetch('/api/expenses/' + id, {
+            method: 'DELETE',
+        });
+
+
+        if (!response.ok) {
+            const data = await response.json();
+            console.log(data);
+        }else{
+            setSeed((prevSeed) => prevSeed + 1);
+        }
+    }
+
 
     return (
         <div className={"relative overflow-x-auto shadow-md sm:rounded-lg w-full mt-5"}>
@@ -40,7 +62,7 @@ export const LatestExpensesListContainer = () => {
                             {expense.amount}€
                         </td>
                         <td className="px-6 py-4 text-center">
-                                <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                                <a className="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-600 cursor-pointer" onClick={() => handleDelete(expense.id)}>
                                 Delete
                             </a>
                         </td>

@@ -6,7 +6,11 @@ type OverviewData = {
   monthly: number;
 };
 
-export function Overview() {
+interface OverviewProps {
+  seed: number;
+}
+
+export function Overview({ seed }: OverviewProps) {
   const [overviewData, setOverviewData] = useState<OverviewData | null>(null);
   // Gets data from the API
   useEffect(() => {
@@ -19,7 +23,7 @@ export function Overview() {
     };
 
     fetchOverviewData().then();
-  }, []);
+  }, [seed]);
 
   if (!overviewData) {
     return (

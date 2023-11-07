@@ -16,7 +16,7 @@ export const ExpensesContainer = () => {
 
   return (
     <>
-      <Overview />
+      <Overview seed={seed} />
       <ExpenseForm setSeed={setSeed} />
       <LatestExpensesList seed={seed} setSeed={setSeed} />
     </>

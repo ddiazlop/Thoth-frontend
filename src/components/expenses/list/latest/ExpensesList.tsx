@@ -4,23 +4,29 @@ import { useEffect, useState } from "react";
 interface LatestExpensesListContainerProps {
   setSeed: (value: ((prevState: number) => number) | number) => void;
   seed: number;
+  isMonthlyView: boolean;
 }
 
-export const LatestExpensesList = ({
+export const ExpensesList = ({
   seed,
   setSeed,
+  isMonthlyView,
 }: LatestExpensesListContainerProps) => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
 
   useEffect(() => {
+    const url = isMonthlyView
+      ? "/api/expenses/monthly"
+      : "/api/expenses/latest";
+
     const fetchExpenses = async () => {
-      const response = await fetch("/api/expenses/latest");
+      const response = await fetch(url);
       const data = await response.json();
       setExpenses(data);
     };
 
     fetchExpenses().then();
-  }, [seed]);
+  }, [seed, isMonthlyView]);
 
   const handleDelete = async (id: number) => {
     const response = await fetch("/api/expenses/" + id, {
@@ -37,7 +43,9 @@ export const LatestExpensesList = ({
 
   return (
     <div
-      className={"relative overflow-x-auto shadow-md sm:rounded-lg w-full mt-5"}
+      className={
+        "relative overflow-x-auto shadow-md sm:rounded-lg w-full mt-0.5"
+      }
     >
       <table
         className={"w-full text-sm text-left text-gray-500 dark:text-gray-400"}

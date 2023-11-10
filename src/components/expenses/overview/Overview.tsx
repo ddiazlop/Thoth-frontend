@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 type OverviewData = {
   total: number;
   monthly: number;
+  prediction: number;
 };
 
 interface OverviewProps {
@@ -45,7 +46,7 @@ export function Overview({ seed }: OverviewProps) {
 
         <OverviewItem amount={overviewData.monthly} type={"Monthly"} />
 
-        <OverviewItem amount={2500} type={"Predicted"} />
+        <OverviewItem amount={overviewData.prediction} type={"Predicted"} />
       </div>
     </div>
   );

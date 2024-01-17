@@ -1,5 +1,7 @@
+import { Dispatch, SetStateAction } from "react";
+
 interface MonthlySwitchProps {
-  setIsMonthlyView: (value: boolean) => void;
+  setIsMonthlyView: Dispatch<SetStateAction<boolean>>;
 }
 
 export const MonthlySwitch: React.FC<MonthlySwitchProps> = ({

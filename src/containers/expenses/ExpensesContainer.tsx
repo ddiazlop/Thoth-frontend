@@ -17,11 +17,11 @@ export const ExpensesContainer = () => {
   }, [seed]);
 
   return (
-    <div className="w-full flex flex-col justify-center place-content-center">
+    <div className="w-full flex flex-col">
       <Overview seed={seed} />
       <ExpenseForm setSeed={setSeed} />
 
-      <MonthlySwitch onchangeBehavior={setIsMonthlyView} />
+      <MonthlySwitch setIsMonthlyView={setIsMonthlyView} />
 
       <ExpensesList
         seed={seed}

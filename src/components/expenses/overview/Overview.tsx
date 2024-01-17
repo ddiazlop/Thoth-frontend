@@ -28,26 +28,20 @@ export function Overview({ seed }: OverviewProps) {
 
   if (!overviewData) {
     return (
-      <div className="container w-full mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2">
-        <div className="flex justify-between items-center flex-shrink">
-          <div className="flex-auto text-center">
-            <h1 className="md:text-5xl sm:text-3xl text-2xl text-gray-900 font-semibold dark:text-white">
-              Loading...
-            </h1>
-          </div>
-        </div>
+      <div className="container mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2 text-center">
+        <h1 className="md:text-5xl sm:text-3xl text-2xl text-gray-900 font-semibold dark:text-white">
+          Loading...
+        </h1>
       </div>
     );
   }
   return (
-    <div className="container w-full mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2">
-      <div className="flex justify-between items-center flex-shrink">
-        <OverviewItem amount={overviewData.total} type={"Total"} />
+    <div className="mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2">
+      <OverviewItem amount={overviewData.total} type={"Total"} />
 
-        <OverviewItem amount={overviewData.monthly} type={"Monthly"} />
+      <OverviewItem amount={overviewData.monthly} type={"Monthly"} />
 
-        <OverviewItem amount={overviewData.prediction} type={"Predicted"} />
-      </div>
+      <OverviewItem amount={overviewData.prediction} type={"Predicted"} />
     </div>
   );
 }

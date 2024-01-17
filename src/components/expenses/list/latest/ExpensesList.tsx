@@ -42,14 +42,9 @@ export const ExpensesList = ({
   };
 
   return (
-    <div
-      className={
-        "relative overflow-x-auto shadow-md sm:rounded-lg w-full mt-0.5"
-      }
-    >
+    <div className={"overflow-x-auto shadow-md w-full rounded-lg mt-0.5"}>
       <table
-        className={"w-full text-sm text-left text-gray-500 dark:text-gray-400"}
-      >
+        className={"w-full text-sm text-left text-gray-500 dark:text-gray-400"}>
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-8 pr-40 py-3">
@@ -69,23 +64,20 @@ export const ExpensesList = ({
               key={expense.id}
               className={
                 "bg-white border-b dark:bg-gray-900 dark:border-gray-700"
-              }
-            >
+              }>
               <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {expense.concept}
               </td>
               <td
                 className={`px-6 py-4 text-center ${
                   expense.amount >= 0 ? "text-green-600" : "text-red-600"
-                }`}
-              >
+                }`}>
                 {expense.amount}€
               </td>
               <td className="px-6 py-4 text-center">
                 <a
                   className="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-600 cursor-pointer"
-                  onClick={() => handleDelete(expense.id)}
-                >
+                  onClick={() => handleDelete(expense.id)}>
                   Delete
                 </a>
               </td>

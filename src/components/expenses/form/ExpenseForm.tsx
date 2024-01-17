@@ -42,7 +42,7 @@ export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
 
   return (
     <form
-      className={"container w-full flex-auto"}
+      className={"container overflow-x-auto w-full flex-auto"}
       onSubmit={handleSubmit}
       id={"add-expense-form"}
     >

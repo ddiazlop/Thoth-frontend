@@ -36,7 +36,7 @@ export function Overview({ seed }: OverviewProps) {
     );
   }
   return (
-    <div className="mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2">
+    <div className="container flex flex-row w-full mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2">
       <OverviewItem amount={overviewData.total} type={"Total"} />
 
       <OverviewItem amount={overviewData.monthly} type={"Monthly"} />

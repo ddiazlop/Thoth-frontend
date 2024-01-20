@@ -42,20 +42,17 @@ export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
 
   return (
     <form
-      className={"container overflow-x-auto w-full flex-auto"}
+      className={"container overflow-x-auto flex-auto"}
       onSubmit={handleSubmit}
-      id={"add-expense-form"}
-    >
+      id={"add-expense-form"}>
       <div
         className={
-          "flex flex-row mt-5 w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 gap-8"
-        }
-      >
+          "flex flex-row mt-5 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 gap-8"
+        }>
         <div className={"w-full relative"}>
           <label
             htmlFor="concept"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Concept
           </label>
           <input
@@ -66,15 +63,13 @@ export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
             onChange={(e) => setConcept(e.target.value)}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Bottle of Water"
-            required
-          ></input>
+            required></input>
           <p className="text-red-500 text-xs italic">{errors["concept"]}</p>
         </div>
         <div className={"w-full relative"}>
           <label
             htmlFor="amount"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Amount
           </label>
           <input
@@ -86,8 +81,7 @@ export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
             onChange={(e) => setAmount(parseFloat(e.target.value))}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="1.80"
-            required
-          ></input>
+            required></input>
           <p className="text-red-500 text-xs italic">{errors["amount"]}</p>
         </div>
 
@@ -99,12 +93,10 @@ export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
               type="checkbox"
               checked={income}
               onChange={(e) => setIncome(e.target.checked)}
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            ></input>
+              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"></input>
             <label
               htmlFor="income"
-              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
               Income
             </label>
           </div>
@@ -115,12 +107,10 @@ export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
               type="checkbox"
               checked={monthly}
               onChange={(e) => setMonthly(e.target.checked)}
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            ></input>
+              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"></input>
             <label
               htmlFor="monthly"
-              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
               Monthly
             </label>
           </div>
@@ -130,8 +120,7 @@ export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
 
         <button
           type={"submit"}
-          className={"flex h-20 items-center p-4 cursor-pointer"}
-        >
+          className={"flex h-20 items-center p-4 cursor-pointer"}>
           <Plus size={50} weight="bold" />
         </button>
       </div>

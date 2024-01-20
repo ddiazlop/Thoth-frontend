@@ -8,7 +8,7 @@ export const MonthlySwitch: React.FC<MonthlySwitchProps> = ({
   setIsMonthlyView,
 }) => {
   return (
-    <div className={"pt-10 flex justify-end w-100"}>
+    <div className={"container pt-10 flex justify-end w-100"}>
       <label className="relative inline-flex items-center mb-4 cursor-pointer">
         <input
           type="checkbox"

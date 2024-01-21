@@ -7,7 +7,7 @@ interface LatestExpensesListContainerProps {
   isMonthlyView: boolean;
 }
 
-export const ExpensesList = ({
+const ExpensesList = ({
   seed,
   setSeed,
   isMonthlyView,
@@ -91,3 +91,5 @@ export const ExpensesList = ({
     </div>
   );
 };
+
+export default ExpensesList;

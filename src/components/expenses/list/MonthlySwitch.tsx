@@ -1,12 +1,11 @@
+import { Signal } from "@preact/signals-react";
 import { Dispatch, SetStateAction } from "react";
 
 interface MonthlySwitchProps {
   setIsMonthlyView: Dispatch<SetStateAction<boolean>>;
 }
 
-export const MonthlySwitch: React.FC<MonthlySwitchProps> = ({
-  setIsMonthlyView,
-}) => {
+const MonthlySwitch: React.FC<MonthlySwitchProps> = ({ setIsMonthlyView }) => {
   return (
     <div className={"container pt-10 flex justify-end w-100"}>
       <label className="relative inline-flex items-center mb-4 cursor-pointer">
@@ -23,3 +22,5 @@ export const MonthlySwitch: React.FC<MonthlySwitchProps> = ({
     </div>
   );
 };
+
+export default MonthlySwitch;

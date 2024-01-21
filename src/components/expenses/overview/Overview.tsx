@@ -11,7 +11,7 @@ interface OverviewProps {
   seed: number;
 }
 
-export function Overview({ seed }: OverviewProps) {
+const Overview = ({ seed }: OverviewProps) => {
   const [overviewData, setOverviewData] = useState<OverviewData | null>(null);
   // Gets data from the API
   useEffect(() => {
@@ -44,4 +44,6 @@ export function Overview({ seed }: OverviewProps) {
       <OverviewItem amount={overviewData.prediction} type={"Predicted"} />
     </div>
   );
-}
+};
+
+export default Overview;

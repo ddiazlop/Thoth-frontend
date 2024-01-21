@@ -1,10 +1,11 @@
-import { Overview } from "@/components/expenses/overview/Overview";
-import { ExpenseForm } from "@/components/expenses/form/ExpenseForm";
-import { ExpensesList } from "@/components/expenses/list/latest/ExpensesList";
+"use client";
+import Overview from "@/components/expenses/overview/Overview";
+import ExpenseForm from "@/components/expenses/form/ExpenseForm";
+import ExpensesList from "@/components/expenses/list/latest/ExpensesList";
 import { useEffect, useState } from "react";
-import { MonthlySwitch } from "@/components/expenses/list/MonthlySwitch";
+import MonthlySwitch from "@/components/expenses/list/MonthlySwitch";
 
-export const ExpensesContainer = () => {
+const ExpensesContainer = () => {
   const [seed, setSeed] = useState(0);
   const [isMonthlyView, setIsMonthlyView] = useState<boolean>(false);
 
@@ -31,3 +32,5 @@ export const ExpensesContainer = () => {
     </div>
   );
 };
+
+export default ExpensesContainer;

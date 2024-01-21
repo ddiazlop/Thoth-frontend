@@ -5,7 +5,7 @@ interface ExpensesFormContainerProps {
   setSeed: (value: ((prevState: number) => number) | number) => void;
 }
 
-export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
+const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
   const [errors, setErrors] = useState<{ [field: string]: string }>({});
 
   const [concept, setConcept] = useState<string>("");
@@ -30,6 +30,7 @@ export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
         errorMessages[error.field] = error.defaultMessage;
       });
       setErrors(errorMessages);
+      console.log(errors);
     } else {
       setErrors({});
       setSeed((prevSeed) => prevSeed + 1);
@@ -127,3 +128,5 @@ export const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
     </form>
   );
 };
+
+export default ExpenseForm;

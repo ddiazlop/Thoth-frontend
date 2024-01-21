@@ -30,7 +30,6 @@ const ExpenseForm = ({ setSeed }: ExpensesFormContainerProps) => {
         errorMessages[error.field] = error.defaultMessage;
       });
       setErrors(errorMessages);
-      console.log(errors);
     } else {
       setErrors({});
       setSeed((prevSeed) => prevSeed + 1);

@@ -16,10 +16,8 @@ const Overview = ({ seed }: OverviewProps) => {
   // Gets data from the API
   useEffect(() => {
     const fetchOverviewData = async () => {
-      console.log("Fetching overview data...");
       const response = await fetch("/api/expenses/overview");
       const data = await response.json();
-      console.log(data);
       setOverviewData(data);
     };
 

@@ -4,10 +4,13 @@ import ExpenseForm from "@/components/expenses/form/ExpenseForm";
 import ExpensesList from "@/components/expenses/list/latest/ExpensesList";
 import { useEffect, useState } from "react";
 import MonthlySwitch from "@/components/expenses/list/MonthlySwitch";
+import { ExpenseView } from "./Enums";
 
 const ExpensesContainer = () => {
   const [seed, setSeed] = useState(0);
-  const [isMonthlyView, setIsMonthlyView] = useState<boolean>(false);
+  const [currentView, setCurrentView] = useState<ExpenseView>(
+    ExpenseView.Latest
+  );
 
   useEffect(() => {
     if (seed === 0) {
@@ -22,13 +25,19 @@ const ExpensesContainer = () => {
       <Overview seed={seed} />
       <ExpenseForm setSeed={setSeed} />
 
-      <MonthlySwitch setIsMonthlyView={setIsMonthlyView} />
-
-      <ExpensesList
-        seed={seed}
-        setSeed={setSeed}
-        isMonthlyView={isMonthlyView}
+      <MonthlySwitch
+        setCurrentView={setCurrentView}
+        currentView={currentView}
       />
+
+      {ExpenseView.Monthly === currentView ||
+        (ExpenseView.Latest === currentView && (
+          <ExpensesList
+            seed={seed}
+            setSeed={setSeed}
+            currentView={currentView}
+          />
+        ))}
     </div>
   );
 };

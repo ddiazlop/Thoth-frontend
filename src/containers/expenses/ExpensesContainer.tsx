@@ -5,6 +5,7 @@ import ExpensesList from "@/components/expenses/list/latest/ExpensesList";
 import { useEffect, useState } from "react";
 import MonthlySwitch from "@/components/expenses/list/MonthlySwitch";
 import { ExpenseView } from "./Enums";
+import Dashboard from "@/components/expenses/dashboard/Dashboard";
 
 const ExpensesContainer = () => {
   const [seed, setSeed] = useState(0);
@@ -30,14 +31,18 @@ const ExpensesContainer = () => {
         currentView={currentView}
       />
 
-      {ExpenseView.Monthly === currentView ||
-        (ExpenseView.Latest === currentView && (
+      <div>
+        {(ExpenseView.Monthly === currentView ||
+          ExpenseView.Latest === currentView) && (
           <ExpensesList
             seed={seed}
             setSeed={setSeed}
             currentView={currentView}
           />
-        ))}
+        )}
+
+        {ExpenseView.Dashboard === currentView && <Dashboard />}
+      </div>
     </div>
   );
 };

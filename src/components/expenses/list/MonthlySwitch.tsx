@@ -19,6 +19,7 @@ const MonthlySwitch: React.FC<MonthlySwitchProps> = ({
       <div>
         <button
           type="button"
+          onClick={() => setCurrentView(ExpenseView.Dashboard)}
           className={
             "me-2 inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" +
             (currentView === ExpenseView.Dashboard

@@ -46,10 +46,11 @@ const ExpensesList = ({
   };
 
   return (
-    <div
-      className={
-        "container overflow-x-auto shadow-md w-full rounded-lg mt-0.5"
-      }>
+    <motion.div
+      className={"container overflow-x-auto shadow-md w-full rounded-lg mt-0.5"}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}>
       <table
         className={"w-full text-sm text-left text-gray-500 dark:text-gray-400"}>
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -65,15 +66,17 @@ const ExpensesList = ({
             </th>
           </tr>
         </thead>
-        <tbody>
-          {expenses.map((expense) => (
+        <motion.tbody initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          {expenses.map((expense, index) => (
             <motion.tr
               key={expense.id}
               className={
                 "bg-white border-b dark:bg-gray-900 dark:border-gray-700"
               }
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}>
+              style={{ originY: 0 }}
+              initial={{ scaleY: 0, opacity: 0 }}
+              animate={{ scaleY: 1, opacity: 1 }}
+              transition={{ duration: 0.1 * index }}>
               <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {expense.concept}
               </td>
@@ -92,9 +95,9 @@ const ExpensesList = ({
               </td>
             </motion.tr>
           ))}
-        </tbody>
+        </motion.tbody>
       </table>
-    </div>
+    </motion.div>
   );
 };
 

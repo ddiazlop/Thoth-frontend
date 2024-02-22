@@ -22,7 +22,7 @@ const ExpensesContainer = () => {
   }, [seed]);
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="container w-full flex flex-col">
       <Overview seed={seed} />
       <ExpenseForm setSeed={setSeed} />
 

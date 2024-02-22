@@ -47,7 +47,7 @@ const ExpensesList = ({
 
   return (
     <motion.div
-      className={"container overflow-x-auto shadow-md w-full rounded-lg mt-0.5"}
+      className={"overflow-x-auto shadow-md w-full rounded-lg mt-0.5"}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}>

@@ -9,7 +9,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Card, CardHeader, CardBody } from "@/app/lib/Card";
+import { Card } from "@/stories/Card/Card";
+import { CardHeader } from "@/stories/Card/CardHeader";
 
 interface data {
   datasets: [{ [key: string]: number }];
@@ -72,14 +73,11 @@ const MonthlyLine: React.FC<data> = ({ datasets }) => {
   };
 
   return (
-    <Card className="w-1/2">
-      <CardHeader>
-        <h2 className="text-2xl font-semibold">Monthly Expenses</h2>
-        <hr className="border-2 border-slate-700 w-1/2 my-4" />
-      </CardHeader>
-      <CardBody>
+    <Card width={50}>
+      <CardHeader title="Monthly Expenses" />
+      {/* <CardBody>
         <Line data={data} options={options} />
-      </CardBody>
+      </CardBody> */}
     </Card>
   );
 };

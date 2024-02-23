@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MonthlyLine from "./graphs/MonthlyLine";
 import { ExpenseByMonth } from "@/model/Expense";
 import { MonthNames } from "./Months";
-import { Card, CardBody } from "@nextui-org/react";
+import { CardHeader } from "@/stories/Card/CardHeader";
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState<ExpenseByMonth[]>([]);

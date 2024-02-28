@@ -11,9 +11,11 @@ import {
 } from "chart.js";
 import { Card } from "@/stories/Card/Card";
 import { CardHeader } from "@/stories/Card/CardHeader";
+import { CardBody } from "@/stories/Card/CardBody";
+import { ExpenseByMonth } from "@/model/Expense";
 
 interface data {
-  datasets: [{ [key: string]: number }];
+  datasets: [ExpenseByMonth[]];
 }
 
 ChartJS.register(
@@ -28,11 +30,11 @@ ChartJS.register(
 
 const MonthlyLine: React.FC<data> = ({ datasets }) => {
   const data = {
-    labels: Object.keys(datasets[0]),
+    labels: datasets[0].map((expense) => expense.month),
     datasets: [
       {
         label: "Monthly Expenses",
-        data: Object.values(datasets[0]),
+        data: datasets[0].map((expense) => expense.amount),
         fill: false,
         backgroundColor: "#ff0000",
         borderColor: "#ff0000",
@@ -75,9 +77,9 @@ const MonthlyLine: React.FC<data> = ({ datasets }) => {
   return (
     <Card width={50}>
       <CardHeader title="Monthly Expenses" />
-      {/* <CardBody>
+      <CardBody>
         <Line data={data} options={options} />
-      </CardBody> */}
+      </CardBody>
     </Card>
   );
 };

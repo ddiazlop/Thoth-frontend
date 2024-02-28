@@ -17,16 +17,9 @@ const Dashboard = () => {
     fetchExpenses().then();
   }, []);
 
-  const expensesDataset: { [key: string]: number } = {};
-  expenses.forEach((expense) => {
-    const [year, month] = expense.month.split("-");
-    const parsedMonth = `${year}-${MonthNames[parseInt(month)]}`;
-    expensesDataset[parsedMonth] = expense.amount;
-  });
-
   return (
     <>
-      <MonthlyLine datasets={[expensesDataset]} />
+      <MonthlyLine datasets={[expenses]} />
     </>
   );
 };

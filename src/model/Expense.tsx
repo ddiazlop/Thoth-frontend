@@ -11,3 +11,8 @@ export type ExpenseByMonth = {
   month: string;
   amount: number;
 };
+
+export type ExpenseAndIncomeByMonth = {
+  expenses: ExpenseByMonth[];
+  income: ExpenseByMonth[];
+};

@@ -1,5 +1,4 @@
 import { animated, useSpring } from "@react-spring/web";
-import { useState } from "react";
 
 export function OverviewItem({
   amount,

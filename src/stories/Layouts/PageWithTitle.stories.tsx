@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { CardBody } from "./CardBody";
+import { PageWithTitle } from "./PageWithTitle";
 import { RectangularPlaceHolder } from "../Placeholders/RectangularPlaceHolder";
 import { ContentPlaceHolder } from "../Placeholders/RectangularPlaceHolder.stories";
 
 const meta = {
-  title: "Card/Body",
-  component: CardBody,
+  title: "Layouts/PageWithTitle",
+  component: PageWithTitle,
   parameters: {
     layout: "centered",
     backgrounds: {
@@ -14,14 +14,15 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof CardBody>;
+} satisfies Meta<typeof PageWithTitle>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const GraphCardBody: Story = {
+export const GraphCardHeader: Story = {
   args: {
     children: <RectangularPlaceHolder {...ContentPlaceHolder.args} />,
+    title: "Expenses",
   },
 };

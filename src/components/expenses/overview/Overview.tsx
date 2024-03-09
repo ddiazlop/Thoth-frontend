@@ -1,4 +1,5 @@
-import { OverviewItem } from "@/components/expenses/overview/item/OverviewItem";
+import { OverviewDisplay } from "@/stories/Displays/OverviewDisplay";
+import { OverviewItem } from "@/stories/Displays/OverviewItem";
 import { useEffect, useState } from "react";
 
 type OverviewData = {
@@ -26,21 +27,19 @@ const Overview = ({ seed }: OverviewProps) => {
 
   if (!overviewData) {
     return (
-      <div className="container mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2 text-center">
+      <OverviewDisplay>
         <h1 className="md:text-5xl sm:text-3xl text-2xl text-gray-900 font-semibold dark:text-white">
           Loading...
         </h1>
-      </div>
+      </OverviewDisplay>
     );
   }
   return (
-    <div className="container flex flex-row w-full mt-3 bg-gray-400 rounded-2xl p-11 bg-opacity-75 border-gray-800 border-2">
+    <OverviewDisplay>
       <OverviewItem amount={overviewData.total} type={"Total"} />
-
-      <OverviewItem amount={overviewData.monthly} type={"Monthly"} />
-
-      <OverviewItem amount={overviewData.prediction} type={"Predicted"} />
-    </div>
+      <OverviewItem amount={overviewData.monthly} type="Monthly" />
+      <OverviewItem amount={overviewData.prediction} type="Predicted" />
+    </OverviewDisplay>
   );
 };
 

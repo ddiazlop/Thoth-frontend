@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import MonthlySwitch from "@/components/expenses/list/MonthlySwitch";
 import { ExpenseView } from "./Enums";
 import Dashboard from "@/components/expenses/dashboard/Dashboard";
+import { FlexContainer } from "@/stories/Containers/FlexContainer";
 
 const ExpensesContainer = () => {
   const [seed, setSeed] = useState(0);
@@ -22,7 +23,7 @@ const ExpensesContainer = () => {
   }, [seed]);
 
   return (
-    <div className="container w-full flex flex-col">
+    <FlexContainer>
       <Overview seed={seed} />
       <ExpenseForm setSeed={setSeed} />
 
@@ -43,7 +44,7 @@ const ExpensesContainer = () => {
 
         {ExpenseView.Dashboard === currentView && <Dashboard />}
       </div>
-    </div>
+    </FlexContainer>
   );
 };
 

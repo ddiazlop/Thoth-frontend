@@ -43,7 +43,13 @@ export const TwoInputsAndTwoCheckBoxes: Story = {
   args: {
     children: [
       <FormInput {...FormInputDefault.args} />,
-      <FormInput {...FormInputDefault.args} />,
+      <FormInput
+        label="Amount"
+        name="amount"
+        step="0.01"
+        type="number"
+        placeholder="1.80"
+      />,
       <FormCheckboxContainer
         {...FormCheckboxContainerDefault.args}></FormCheckboxContainer>,
     ],

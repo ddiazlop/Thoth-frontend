@@ -30,6 +30,15 @@ export const Default: Story = {
   },
 };
 
+export const DefaultWithCheckboxSection: Story = {
+  args: {
+    children: [
+      <RectangularPlaceHolder width="20" height="5" label="Inputs" />,
+      <RectangularPlaceHolder width="8" height="5" label="Checkboxes" />,
+    ],
+  },
+};
+
 export const TwoInputs: Story = {
   args: {
     children: [

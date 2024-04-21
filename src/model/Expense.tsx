@@ -12,7 +12,13 @@ export type ExpenseByMonth = {
   amount: number;
 };
 
-export type ExpenseAndIncomeByMonth = {
+export type ExpensesByType = {
+  type: string;
+  amount: number;
+};
+
+export type DashboardViewData = {
   expenses: ExpenseByMonth[];
   income: ExpenseByMonth[];
+  expensesByType: ExpensesByType[];
 };

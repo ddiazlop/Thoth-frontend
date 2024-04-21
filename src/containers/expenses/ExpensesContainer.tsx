@@ -32,7 +32,7 @@ const ExpensesContainer = () => {
         currentView={currentView}
       />
 
-      <div>
+      <div className="mt-2">
         {(ExpenseView.Monthly === currentView ||
           ExpenseView.Latest === currentView) && (
           <ExpensesList

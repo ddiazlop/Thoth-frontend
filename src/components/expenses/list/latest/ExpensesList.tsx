@@ -84,7 +84,7 @@ const ExpensesList = ({
                 className={`px-6 py-4 text-center ${
                   expense.amount >= 0 ? "text-green-600" : "text-red-600"
                 }`}>
-                {expense.amount}€
+                {expense.amount.toFixed(2)}€
               </td>
               <td className="px-6 py-4 text-center">
                 <a

@@ -2,10 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { OverviewDisplay } from "./OverviewDisplay";
 import { OverviewItem } from "./OverviewItem";
-import { Default as DefaultItem } from "./OverviewItem.stories";
 
 const meta = {
-  title: "Displays/OverviewDisplay",
+  title: "Displays/Overview/OverviewDisplay",
   component: OverviewDisplay,
   parameters: {
     layout: "centered",

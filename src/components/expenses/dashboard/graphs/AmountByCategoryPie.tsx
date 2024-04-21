@@ -18,7 +18,7 @@ const AmountByCategoryPie = ({
     labels: dataset.map((expense) => expense.type),
     datasets: [
       {
-        label: "My First Dataset",
+        label: "",
         data: dataset.map((expense) => expense.amount),
         backgroundColor: [
           "rgb(255, 117, 51)",

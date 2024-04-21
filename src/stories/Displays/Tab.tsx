@@ -5,7 +5,7 @@ interface TabProps {
   currentView?: number;
   views: number[];
 }
-
+//TODO: SEparate this
 export const Tab = ({ setCurrentView, currentView, views }: TabProps) => {
   return (
     <div
